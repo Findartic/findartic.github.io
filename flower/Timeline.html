@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>綻放 - 維也納美景宮百年花繪藝術時期圖表</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 40px 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            padding: 50px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 50px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #d4af37 0%, #8b7355 100%);
+            border-radius: 2px;
+        }
+        
+        .period {
+            position: relative;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+        }
+        
+        .period:nth-child(1) { animation-delay: 0.2s; }
+        .period:nth-child(2) { animation-delay: 0.4s; }
+        .period:nth-child(3) { animation-delay: 0.6s; }
+        .period:nth-child(4) { animation-delay: 0.8s; }
+        .period:nth-child(5) { animation-delay: 1s; }
+        .period:nth-child(6) { animation-delay: 1.2s; }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .period-content {
+            width: 45%;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .period-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            border-color: #d4af37;
+        }
+        
+        .period:nth-child(odd) .period-content {
+            margin-left: 0;
+        }
+        
+        .period:nth-child(even) .period-content {
+            margin-left: 55%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 30px;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background: #d4af37;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #d4af37;
+            z-index: 10;
+        }
+        
+        .period-header {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f5f5f5;
+        }
+        
+        .period-title {
+            font-size: 1.6em;
+            color: #2c3e50;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .period-time {
+            color: #d4af37;
+            font-size: 1.1em;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .period-style {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            font-style: italic;
+        }
+        
+        .artists {
+            margin-top: 20px;
+        }
+        
+        .artist {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+        }
+        
+        .artist:last-child {
+            margin-bottom: 0;
+        }
+        
+        .artist-name {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        
+        .artist-info {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+        
+        .country-flag {
+            display: inline-block;
+            padding: 3px 10px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        
+        .artwork {
+            color: #555;
+            font-size: 0.95em;
+            line-height: 1.8;
+            margin-top: 8px;
+        }
+        
+        .artwork-title {
+            font-style: italic;
+            color: #34495e;
+        }
+        
+        .legend {
+            margin-top: 50px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 5px solid #d4af37;
+        }
+        
+        .legend-title {
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .legend-item {
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .period-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌸 綻放 - 維也納美景宮百年花繪名作展 🌸</h1>
+        <div class="subtitle">從瓦爾德米勒到克林姆 | 18-20世紀歐洲花卉藝術演進</div>
+        
+        <div class="timeline">
+            <!-- 巴洛克時期 -->
+            <div class="period">
+                <div class="timeline-dot"></div>
+                <div class="period-content">
+                    <div class="period-header">
+                        <div class="period-title">巴洛克時期</div>
+                        <div class="period-time">18世紀 (1700-1800)</div>
+                        <div class="period-style">繁麗華美 • 宮廷藝術</div>
+                    </div>
+                    <div class="artists">
+                        <div class="artist">
+                            <div class="artist-name">約翰·巴提斯特·德雷克斯勒</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Johann Baptist Drechsler (1756-1811)
+                            </div>
+                            <div class="artwork">
+                                <strong>代表作品:</strong><br>
+                                <span class="artwork-title">《大型花卉靜物與鳥》</span> (1799)<br>
+                                油彩、畫布，127×159公分
+                            </div>
+                        </div>
+                        <div class="artist">
+                            <div class="artist-name">法蘭茲·維爾納·塔姆</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Franz Werner Tamm
+                            </div>
+                            <div class="artwork">
+                                <strong>代表作品:</strong><br>
+                                <span class="artwork-title">《花卉、兔子與果實靜物》</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 浪漫主義 -->
+            <div class="period">
+                <div class="timeline-dot"></div>
+                <div class="period-content">
+                    <div class="period-header">
+                        <div class="period-title">浪漫主義</div>
+                        <div class="period-time">19世紀初期 (1800-1850)</div>
+                        <div class="period-style">抒情詩意 • 自然讚頌</div>
+                    </div>
+                    <div class="artists">
+                        <div class="artist">
+                            <div class="artist-name">費迪南德·格奧爾格·瓦爾德米勒</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Ferdinand Georg Waldmüller (1793-1865)
+                            </div>
+                            <div class="artwork">
+                                <strong>代表作品:</strong><br>
+                                <span class="artwork-title">《窮人的祝福》</span> (1861)<br>
+                                油彩、木板，55.5×44.5公分<br>
+                                <span class="artwork-title">《水果、花與銀杯靜物》</span><br>
+                                <em>※ 畢德麥亞時期精緻寫實高峰</em>
+                            </div>
+                        </div>
+                        <div class="artist">
+                            <div class="artist-name">約翰·納普</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Johann Knapp (18-19世紀)
+                            </div>
+                            <div class="artwork">
+                                <strong>代表作品:</strong><br>
+                                <span class="artwork-title">《向雅坎致敬》</span><br>
+                                <em>※ 一生創作數千幅水彩植物圖像</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 美好年代 -->
+            <div class="period">
+                <div class="timeline-dot"></div>
+                <div class="period-content">
+                    <div class="period-header">
+                        <div class="period-title">美好年代</div>
+                        <div class="period-time">19世紀後期 (1871-1914)</div>
+                        <div class="period-style">華麗精緻 • Belle Époque</div>
+                    </div>
+                    <div class="artists">
+                        <div class="artist">
+                            <div class="artist-name">雨果·夏勒蒙</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Hugo Charlemont (1850-1939)
+                            </div>
+                            <div class="artwork">
+                                <strong>代表作品:</strong><br>
+                                <span class="artwork-title">《魯道夫皇子半身像與花卉靜物》</span> (1890)<br>
+                                油彩、木板，51×38公分
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 印象主義 -->
+            <div class="period">
+                <div class="timeline-dot"></div>
+                <div class="period-content">
+                    <div class="period-header">
+                        <div class="period-title">印象主義</div>
+                        <div class="period-time">19世紀後期 (1860-1900)</div>
+                        <div class="period-style">光影流轉 • 色彩探索</div>
+                    </div>
+                    <div class="artists">
+                        <div class="artist">
+                            <div class="artist-name">歐嘉·威辛格-弗洛里安</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Olga Wisinger-Florian
+                            </div>
+                            <div class="artwork">
+                                <strong>代表作品:</strong><br>
+                                <span class="artwork-title">《盛開的罌粟花》</span> (Flowering Poppies)<br>
+                                <em>※ 奧地利印象主義代表</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 維也納分離派 -->
+            <div class="period">
+                <div class="timeline-dot"></div>
+                <div class="period-content">
+                    <div class="period-header">
+                        <div class="period-title">維也納分離派</div>
+                        <div class="period-time">世紀之交 (1897-1905)</div>
+                        <div class="period-style">革新探索 • 黃金時期</div>
+                    </div>
+                    <div class="artists">
+                        <div class="artist">
+                            <div class="artist-name">古斯塔夫·克林姆 ⭐</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Gustav Klimt (1862-1918)
+                            </div>
+                            <div class="artwork">
+                                <strong>代表作品:</strong><br>
+                                <span class="artwork-title">《雨後》</span> (After the Rain, 1898)<br>
+                                <em style="color: #c0392b;">✦ 美景宮國寶級原作首度來臺</em><br>
+                                <em>✦ 與名作《吻》屬同期創作</em><br>
+                                <em>✦ 象徵主義大師、分離派創始人</em>
+                            </div>
+                        </div>
+                        <div class="artist">
+                            <div class="artist-name">科羅曼·莫塞爾</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Koloman Moser
+                            </div>
+                            <div class="artwork">
+                                <em>※ 維也納分離派重要成員</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 現代主義 -->
+            <div class="period">
+                <div class="timeline-dot"></div>
+                <div class="period-content">
+                    <div class="period-header">
+                        <div class="period-title">現代主義 / 表現主義</div>
+                        <div class="period-time">20世紀初期 (1900-1920)</div>
+                        <div class="period-style">當代轉向 • 情感表達</div>
+                    </div>
+                    <div class="artists">
+                        <div class="artist">
+                            <div class="artist-name">埃貢·席勒</div>
+                            <div class="artist-info">
+                                <span class="country-flag">🇦🇹 奧地利</span>
+                                Egon Schiele (1890-1918)
+                            </div>
+                            <div class="artwork">
+                                <strong>代表作品:</strong><br>
+                                <span class="artwork-title">《向日葵 I》</span> (Sunflowers I)<br>
+                                <em>※ 奧地利表現主義先驅</em><br>
+                                <em>※ 維也納分離派後新一代前衛藝術象徵</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="legend">
+            <div class="legend-title">📌 展覽資訊</div>
+            <div class="legend-item">🏛️ <strong>主辦:</strong> 維也納美景宮 (Belvedere, Vienna)、國立歷史博物館、時藝多媒體</div>
+            <div class="legend-item">📅 <strong>展期:</strong> 2025年12月5日 - 2026年3月22日</div>
+            <div class="legend-item">📍 <strong>地點:</strong> 國立歷史博物館 1、2樓展廳 (台北市中正區南海路49號)</div>
+            <div class="legend-item">🎨 <strong>展品:</strong> 60幅花卉藝術巨作，橫跨200年歐洲藝術史</div>
+            <div class="legend-item">✨ <strong>特色:</strong> 克林姆真跡首度來臺 | 「克林姆花園」沉浸式空間 | 張鈞甯獻聲導覽</div>
+        </div>
+    </div>
+</body>
+</html>
