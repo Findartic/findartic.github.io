@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>藝術運動法文名稱的語源學分析</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', 'Noto Sans TC', Garamond, serif;
+            background: linear-gradient(135deg, #c9a074 0%, #8b7355 100%);
+            padding: 40px 20px;
+            line-height: 1.9;
+            color: #2c3e50;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #f5f0e8;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(139, 115, 85, 0.4);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #5a4634 0%, #8b7355 100%);
+            color: white;
+            padding: 60px 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "étymologie";
+            position: absolute;
+            font-size: 8em;
+            opacity: 0.05;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-style: italic;
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            font-weight: 300;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            padding: 60px 50px;
+        }
+        
+        .intro {
+            background: linear-gradient(135deg, #f4e8d8 0%, #e8d5bb 100%);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 50px;
+            border-left: 6px solid #d4af37;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+        }
+        
+        .intro h2 {
+            color: #8b7355;
+            margin-bottom: 20px;
+            font-size: 2em;
+            font-style: italic;
+        }
+        
+        .intro p {
+            color: #555;
+            font-size: 1.1em;
+            line-height: 2;
+        }
+        
+        .etymology-section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: #faf8f3;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(139, 115, 85, 0.15);
+            border-top: 5px solid;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .etymology-section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(139, 115, 85, 0.25);
+        }
+        
+        .baroque { border-color: #e74c3c; }
+        .romantisme { border-color: #3498db; }
+        .belle-epoque { border-color: #f39c12; }
+        .impressionnisme { border-color: #1abc9c; }
+        .secession { border-color: #9b59b6; }
+        .modernisme { border-color: #34495e; }
+        
+        .term-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .french-term {
+            font-size: 3em;
+            font-weight: 700;
+            font-style: italic;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .baroque .french-term { color: #e74c3c; }
+        .romantisme .french-term { color: #3498db; }
+        .belle-epoque .french-term { color: #f39c12; }
+        .impressionnisme .french-term { color: #1abc9c; }
+        .secession .french-term { color: #9b59b6; }
+        .modernisme .french-term { color: #34495e; }
+        
+        .pronunciation {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+        
+        .period-info {
+            color: #95a5a6;
+            font-size: 1em;
+        }
+        
+        .etymology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .etymology-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid;
+        }
+        
+        .baroque .etymology-card { border-color: #e74c3c; }
+        .romantisme .etymology-card { border-color: #3498db; }
+        .belle-epoque .etymology-card { border-color: #f39c12; }
+        .impressionnisme .etymology-card { border-color: #1abc9c; }
+        .secession .etymology-card { border-color: #9b59b6; }
+        .modernisme .etymology-card { border-color: #34495e; }
+        
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .card-title::before {
+            content: "◆";
+            font-size: 0.8em;
+        }
+        
+        .card-content {
+            color: #555;
+            line-height: 1.9;
+        }
+        
+        .card-content strong {
+            color: #2c3e50;
+            display: block;
+            margin-top: 12px;
+            margin-bottom: 5px;
+        }
+        
+        .etymology-origin {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border-left: 5px solid #4caf50;
+        }
+        
+        .etymology-origin h4 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .origin-path {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 15px;
+            font-size: 1.05em;
+        }
+        
+        .origin-step {
+            background: #faf8f3;
+            padding: 12px 20px;
+            border-radius: 25px;
+            color: #2e7d32;
+            font-weight: 600;
+            box-shadow: 0 3px 10px rgba(76, 175, 80, 0.2);
+        }
+        
+        .arrow-symbol {
+            color: #4caf50;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .philosophical-meaning {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border-left: 5px solid #ff9800;
+        }
+        
+        .philosophical-meaning h4 {
+            color: #e65100;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .philosophical-meaning p {
+            color: #555;
+            line-height: 2;
+            font-size: 1.05em;
+        }
+        
+        .quote-box {
+            background: #f5f5f5;
+            border-left: 5px solid #9e9e9e;
+            padding: 20px 25px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: "«";
+            font-size: 4em;
+            color: #e0e0e0;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            font-family: Georgia, serif;
+        }
+        
+        .quote-box .quote-text {
+            position: relative;
+            z-index: 1;
+            padding-left: 40px;
+        }
+        
+        .linguistic-analysis {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            border-left: 5px solid #2196f3;
+        }
+        
+        .linguistic-analysis h4 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .linguistic-analysis ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .linguistic-analysis li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .linguistic-analysis li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #2196f3;
+            font-weight: bold;
+        }
+        
+        .comparison-table {
+            margin-top: 60px;
+            background: #faf8f3;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 35px;
+            font-size: 2.2em;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 18px;
+            text-align: left;
+            font-size: 1.1em;
+        }
+        
+        td {
+            padding: 18px;
+            border-bottom: 1px solid #ecf0f1;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        tr:hover {
+            background: #e8f5e9;
+        }
+        
+        .term-column {
+            font-weight: 700;
+            font-style: italic;
+            font-size: 1.2em;
+        }
+        
+        .meaning-column {
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 30px;
+            }
+            
+            .content {
+                padding: 40px 25px;
+            }
+            
+            .french-term {
+                font-size: 2em;
+            }
+            
+            .etymology-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .origin-path {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎨 L'Étymologie des Mouvements Artistiques</h1>
+            <div class="subtitle">藝術運動法文名稱的語源學與哲學涵義</div>
+        </div>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>« Les mots sont les fenêtres de l'âme »</h2>
+                <p>
+                    <strong>「詞語是靈魂的窗戶」</strong><br><br>
+                    
+                    每個藝術運動的名稱都不是偶然的——它們承載著該時代的世界觀、價值觀與美學理想。通過分析這些法文術語的語源學（étymologie），我們可以洞察每個時代如何理解藝術、自然、人性與真實。<br><br>
+                    
+                    法語作為西方藝術史的主要語言之一，其詞彙的拉丁語、希臘語根源，以及中古法語的演變，都深刻影響了我們對藝術概念的理解。讓我們深入探索這些名稱背後的語言密碼。
+                </p>
+            </div>
+            
+            <!-- Baroque -->
+            <div class="etymology-section baroque">
+                <div class="term-header">
+                    <div class="french-term">Baroque</div>
+                    <div class="pronunciation">[ba.ʁɔk] 巴洛克</div>
+                    <div class="period-info">18世紀 | 裝飾藝術時期</div>
+                </div>
+                
+                <div class="etymology-origin">
+                    <h4>📜 語源演變路徑</h4>
+                    <div class="origin-path">
+                        <span class="origin-step">葡萄牙語 barroco</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">「不規則的珍珠」</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">法語 baroque</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">「奇異的、不規則的」</span>
+                    </div>
+                    
+                    <div class="quote-box">
+                        <div class="quote-text">
+                            原始詞義來自葡萄牙珠寶商術語「barroco」，指形狀不規則、表面有瑕疵但依然珍貴的天然珍珠。這個詞最初帶有<strong>貶義</strong>，用來批評那些過於繁複、不符合古典和諧比例的藝術風格。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="etymology-grid">
+                    <div class="etymology-card">
+                        <div class="card-title">詞源學分析</div>
+                        <div class="card-content">
+                            <strong>葡萄牙語 barroco：</strong>
+                            不規則形狀的珍珠
+                            
+                            <strong>衍生義：</strong>
+                            • 不對稱、不規則<br>
+                            • 過度裝飾、誇張<br>
+                            • 違反古典規則<br>
+                            • 奇特、怪異
+                            
+                            <strong>首次藝術用途：</strong>
+                            18世紀啟蒙時期的批評家用此詞貶低17世紀藝術的「過度」特質
+                        </div>
+                    </div>
+                    
+                    <div class="etymology-card">
+                        <div class="card-title">語義演變</div>
+                        <div class="card-content">
+                            <strong>17世紀：</strong>貶義詞——奢華過度、違反理性
+                            
+                            <strong>18世紀：</strong>藝術史術語——特定時期風格
+                            
+                            <strong>19世紀後：</strong>中性/褒義——承認其藝術價值
+                            
+                            <strong>現代意義：</strong>
+                            繁複、戲劇性、動態、情感豐富的藝術風格
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="philosophical-meaning">
+                    <h4>💭 哲學涵義</h4>
+                    <p>
+                        <strong>「不規則的珍珠」這個隱喻深刻揭示了巴洛克美學的本質：</strong><br><br>
+                        
+                        <strong>1. 自然 vs 規則：</strong>珍珠的不規則性是自然的產物，暗示了巴洛克對「自然力量」的尊重，而非古典主義的「理性秩序」。<br><br>
+                        
+                        <strong>2. 缺陷即美：</strong>不規則珍珠依然珍貴，暗示「完美」並非唯一的美的標準——這挑戰了文藝復興以來的和諧美學。<br><br>
+                        
+                        <strong>3. 動態與張力：</strong>不規則形狀意味著運動、張力、不穩定——這正是巴洛克藝術的核心特質：曲線、對角線、戲劇性光影。<br><br>
+                        
+                        <strong>4. 感官優先於理性：</strong>巴洛克藝術訴諸感官震撼而非理性思考，如同珍珠的光澤直接打動視覺。
+                    </p>
+                </div>
+                
+                <div class="linguistic-analysis">
+                    <h4>🔍 語言學洞察</h4>
+                    <ul>
+                        <li><strong>從貶義到褒義的轉變：</strong>反映了藝術史對「規則」與「自由」的重新思考</li>
+                        <li><strong>物質隱喻：</strong>用珍寶來命名藝術風格，暗示了該時期藝術與財富、權力的緊密關係</li>
+                        <li><strong>跨語言借詞：</strong>從葡萄牙語到法語，反映了歐洲藝術的國際化特質</li>
+                        <li><strong>感官詞彙：</strong>「不規則」是視覺和觸覺的詞彙，強調巴洛克的感官性</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Romantisme -->
+            <div class="etymology-section romantisme">
+                <div class="term-header">
+                    <div class="french-term">Romantisme</div>
+                    <div class="pronunciation">[ʁɔ.mɑ̃.tism] 浪漫主義</div>
+                    <div class="period-info">19世紀初期 | 情感與自然時期</div>
+                </div>
+                
+                <div class="etymology-origin">
+                    <h4>📜 語源演變路徑</h4>
+                    <div class="origin-path">
+                        <span class="origin-step">拉丁語 romanicus</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">古法語 romanz</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">英語 romantic</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">法語 romantique/romantisme</span>
+                    </div>
+                    
+                    <div class="quote-box">
+                        <div class="quote-text">
+                            「Romantisme」源自「roman」（小說），而「roman」來自「romanicus」，意指「羅曼語寫成的作品」。中世紀時，用拉丁語寫的是嚴肅學術作品，而用<strong>通俗羅曼語</strong>（法語、西班牙語等）寫的則是<strong>騎士傳奇、愛情故事</strong>——充滿想像、情感與冒險。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="etymology-grid">
+                    <div class="etymology-card">
+                        <div class="card-title">詞根分析</div>
+                        <div class="card-content">
+                            <strong>拉丁語 romanicus：</strong>
+                            「羅馬的、羅曼語的」
+                            
+                            <strong>古法語 romanz：</strong>
+                            用通俗語言寫成的騎士傳奇
+                            
+                            <strong>衍生義：</strong>
+                            • 想像力豐富的<br>
+                            • 情感豐沛的<br>
+                            • 遠離現實的<br>
+                            • 充滿詩意與理想的
+                            
+                            <strong>後綴 -isme：</strong>
+                            表示「主義、運動、思潮」
+                        </div>
+                    </div>
+                    
+                    <div class="etymology-card">
+                        <div class="card-title">概念演變</div>
+                        <div class="card-content">
+                            <strong>中世紀：</strong>
+                            romanz = 騎士故事（vs 拉丁文學術）
+                            
+                            <strong>17世紀：</strong>
+                            romantique = 如小說般的、奇幻的
+                            
+                            <strong>18世紀末：</strong>
+                            浪漫風景 = 喚起情感的自然景觀
+                            
+                            <strong>19世紀：</strong>
+                            Romantisme = 反古典主義的文藝思潮
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="philosophical-meaning">
+                    <h4>💭 哲學涵義</h4>
+                    <p>
+                        <strong>「浪漫」一詞蘊含的深層對立：</strong><br><br>
+                        
+                        <strong>1. 通俗 vs 精英：</strong>羅曼語是人民的語言，對應拉丁語的學術精英。浪漫主義因此帶有<strong>民主精神</strong>——藝術應該感動所有人，而非僅供學者欣賞。<br><br>
+                        
+                        <strong>2. 情感 vs 理性：</strong>騎士傳奇強調愛情、勇氣、忠誠等情感，而非哲學思辨。浪漫主義重視<strong>感性認知</strong>勝過理性分析。<br><br>
+                        
+                        <strong>3. 想像 vs 模仿：</strong>傳奇故事是虛構創造，不是對現實的模仿。浪漫主義主張藝術家的<strong>想像力</strong>是創作的源泉。<br><br>
+                        
+                        <strong>4. 個人 vs 規則：</strong>每個騎士都有獨特的冒險故事。浪漫主義強調<strong>個人體驗</strong>的獨特性，反對古典主義的普遍規則。<br><br>
+                        
+                        <strong>5. 自然狀態：</strong>騎士在森林、荒野中冒險，遠離文明。浪漫主義崇尚<strong>回歸自然</strong>，反對工業化與理性主義。
+                    </p>
+                </div>
+                
+                <div class="linguistic-analysis">
+                    <h4>🔍 語言學洞察</h4>
+                    <ul>
+                        <li><strong>語言階層的顛覆：</strong>從「通俗語言」到「高級藝術」，反映了價值觀的民主化</li>
+                        <li><strong>文學類型的隱喻：</strong>用「小說」來定義整個時代精神，顯示敘事與想像的核心地位</li>
+                        <li><strong>從形容詞到主義：</strong>romantic → Romantisme，將個人特質上升為集體運動</li>
+                        <li><strong>情感詞彙：</strong>「浪漫」本身就充滿情感色彩，不可能「理性地浪漫」</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Belle Époque -->
+            <div class="etymology-section belle-epoque">
+                <div class="term-header">
+                    <div class="french-term">Belle Époque</div>
+                    <div class="pronunciation">[bɛl e.pɔk] 美好年代</div>
+                    <div class="period-info">1871-1914 | 和平繁榮時期</div>
+                </div>
+                
+                <div class="etymology-origin">
+                    <h4>📜 語源演變路徑</h4>
+                    <div class="origin-path">
+                        <span class="origin-step">拉丁語 bella</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">法語 belle「美麗的」</span>
+                        <span class="arrow-symbol">+</span>
+                        <span class="origin-step">希臘語 ἐποχή</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">法語 époque「時代」</span>
+                    </div>
+                    
+                    <div class="quote-box">
+                        <div class="quote-text">
+                            <strong>「Belle Époque」並非當時人的自稱，而是一戰後的回顧性命名。</strong>經歷了戰爭浩劫後，人們懷念戰前那段和平、繁榮、樂觀的時光，於是創造了這個詞。這是一個<strong>懷舊的、理想化的概念</strong>，充滿了對「失落的黃金時代」的追憶。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="etymology-grid">
+                    <div class="etymology-card">
+                        <div class="card-title">詞彙結構</div>
+                        <div class="card-content">
+                            <strong>Belle（陰性形容詞）：</strong>
+                            美麗的、美好的、優雅的
+                            
+                            <strong>來自拉丁語 bellus：</strong>
+                            • 優美的、精緻的<br>
+                            • 討人喜歡的<br>
+                            • 適宜的、得體的
+                            
+                            <strong>Époque（陰性名詞）：</strong>
+                            時代、紀元、時期
+                            
+                            <strong>來自希臘語 ἐποχή (epokhḗ)：</strong>
+                            • 停頓、暫停<br>
+                            • 特定的時間點<br>
+                            • 歷史時期
+                        </div>
+                    </div>
+                    
+                    <div class="etymology-card">
+                        <div class="card-title">命名時間</div>
+                        <div class="card-content">
+                            <strong>1871-1914：</strong>
+                            實際歷史時期（普法戰爭後至一戰前）
+                            
+                            <strong>1920年代：</strong>
+                            「Belle Époque」一詞開始流行
+                            
+                            <strong>1940年代：</strong>
+                            正式確立為藝術史術語
+                            
+                            <strong>特殊性：</strong>
+                            這是唯一一個<strong>回顧性命名</strong>的時期——當代人並未自稱處於「美好年代」
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="philosophical-meaning">
+                    <h4>💭 哲學涵義</h4>
+                    <p>
+                        <strong>「美好年代」這個命名揭示了歷史記憶的複雜性：</strong><br><br>
+                        
+                        <strong>1. 懷舊與理想化：</strong>「美好」是<strong>失去後才意識到</strong>的。一戰的殘酷讓人們美化戰前時光，創造了一個可能從未真實存在的「黃金時代」。<br><br>
+                        
+                        <strong>2. 階級視角：</strong>「美好」對誰而言？這是<strong>中產階級和貴族</strong>的記憶。對工人階級來說，那個時代充滿剝削和貧困。這個詞本身就帶有階級偏見。<br><br>
+                        
+                        <strong>3. 暴風雨前的寧靜：</strong>「美好」中隱含著<strong>即將失去</strong>的悲劇性。這是最後的盛世，一種末世狂歡的優雅。<br><br>
+                        
+                        <strong>4. 時間的悖論：</strong>希臘語「epoche」原意是「暫停」——美好年代確實是歷史進程中的一次「暫停」：在兩次大革命（工業革命與世界大戰）之間的喘息。<br><br>
+                        
+                        <strong>5. 表面繁榮：</strong>「Belle」強調的是<strong>外表的美麗</strong>——華麗的沙龍、優雅的服飾、精緻的藝術——卻掩蓋了社會矛盾與即將到來的危機。
+                    </p>
+                </div>
+                
+                <div class="linguistic-analysis">
+                    <h4>🔍 語言學洞察</h4>
+                    <ul>
+                        <li><strong>懷舊的修辭：</strong>形容詞+時代名詞的結構，本身就是一種情感化的歷史敘事</li>
+                        <li><strong>陰性語法：</strong>法語中époque是陰性，belle也是陰性——「溫柔」「優雅」的性別隱喻</li>
+                        <li><strong>非中性命名：</strong>不像「巴洛克」「印象派」等相對客觀的術語，這是明確的價值判斷</li>
+                        <li><strong>集體記憶：</strong>這個詞的流行反映了整個社會對「逝去美好」的共同想像</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Impressionnisme -->
+            <div class="etymology-section impressionnisme">
+                <div class="term-header">
+                    <div class="french-term">Impressionnisme</div>
+                    <div class="pronunciation">[ɛ̃.pʁɛ.sjɔ.nism] 印象主義</div>
+                    <div class="period-info">1860-1900 | 光與色彩革命</div>
+                </div>
+                
+                <div class="etymology-origin">
+                    <h4>📜 語源演變路徑</h4>
+                    <div class="origin-path">
+                        <span class="origin-step">拉丁語 impressio</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">法語 impression</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">莫內畫作標題</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">Impressionnisme</span>
+                    </div>
+                    
+                    <div class="quote-box">
+                        <div class="quote-text">
+                            1872年，莫內創作了《印象·日出》（<em>Impression, soleil levant</em>）。1874年首次印象派畫展時，批評家Louis Leroy諷刺地用「impressionnistes」（印象派們）來嘲笑這群畫家——暗示他們只畫「印象」而非「真實」。但藝術家們欣然接受了這個「貶稱」，將其轉化為革命性的宣言。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="etymology-grid">
+                    <div class="etymology-card">
+                        <div class="card-title">詞根解構</div>
+                        <div class="card-content">
+                            <strong>拉丁語 impressio：</strong>
+                            im-「進入」+ premere「壓、按」
+                            
+                            <strong>原始義：</strong>
+                            • 壓印、印記<br>
+                            • 外物在心靈上留下的痕跡<br>
+                            • 第一印象、直覺感受
+                            
+                            <strong>法語 impression：</strong>
+                            • 印刷、印記<br>
+                            • 感覺、感受<br>
+                            • 模糊的、不清晰的認知
+                            
+                            <strong>後綴 -isme：</strong>
+                            藝術運動、思想流派
+                        </div>
+                    </div>
+                    
+                    <div class="etymology-card">
+                        <div class="card-title">物理到心理</div>
+                        <div class="card-content">
+                            <strong>物理意義：</strong>
+                            物體在軟質材料上留下的印記（如蠟封）
+                            
+                            <strong>認識論意義：</strong>
+                            外部世界在心靈上產生的效果（洛克的經驗主義）
+                            
+                            <strong>美學意義：</strong>
+                            藝術家瞬間的視覺感受
+                            
+                            <strong>批評者的貶義：</strong>
+                            「只是印象」= 不完整、不精確、膚淺
+                            
+                            <strong>藝術家的反轉：</strong>
+                            印象才是最真實的視覺經驗
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="philosophical-meaning">
+                    <h4>💭 哲學涵義</h4>
+                    <p>
+                        <strong>「印象」概念的認識論革命：</strong><br><br>
+                        
+                        <strong>1. 從「物」到「感」：</strong>傳統繪畫畫「物體本身」，印象派畫「看到物體時的感覺」。這是從<strong>本體論</strong>到<strong>現象學</strong>的轉向。<br><br>
+                        
+                        <strong>2. 主觀真實：</strong>「印象」承認視覺的<strong>主觀性</strong>——每個人、每個時刻看到的都不同。沒有絕對的、客觀的「正確畫法」。<br><br>
+                        
+                        <strong>3. 瞬間性：</strong>「impression」暗示<strong>轉瞬即逝</strong>——光線變化、大氣流動、視覺的流動性。這挑戰了傳統藝術的「永恆性」訴求。<br><br>
+                        
+                        <strong>4. 未完成的美學：</strong>「印象」天然是<strong>不完整的</strong>——這正是印象派畫作的特質：筆觸可見、輪廓模糊。拒絕學院派的「完成度」標準。<br><br>
+                        
+                        <strong>5. 感官優先：</strong>「印象」是感官的直接反應，在<strong>概念化之前</strong>的原始知覺。這是對理性主義的反叛。<br><br>
+                        
+                        <strong>6. 科學與藝術：</strong>「印象」也是<strong>光學科學</strong>的詞彙——視網膜上的光學印象。印象派結合了藝術與當代科學。
+                    </p>
+                </div>
+                
+                <div class="linguistic-analysis">
+                    <h4>🔍 語言學洞察</h4>
+                    <ul>
+                        <li><strong>從貶義到褒義：</strong>如同「巴洛克」，批評者的嘲諷被藝術家轉化為驕傲的標誌</li>
+                        <li><strong>多義性：</strong>「impression」同時是物理的、心理的、美學的——這種多義性正是印象派的核心</li>
+                        <li><strong>動詞性名詞：</strong>「印象」是一個過程，不是結果——強調藝術的「進行時」</li>
+                        <li><strong>被動語態：</strong>「被印上」暗示藝術家接收而非主動創造——這是對「天才創造論」的質疑</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Sécession -->
+            <div class="etymology-section secession">
+                <div class="term-header">
+                    <div class="french-term">Sécession</div>
+                    <div class="pronunciation">[se.sɛ.sjɔ̃] 分離派</div>
+                    <div class="period-info">1897-1905 | 維也納藝術革命</div>
+                </div>
+                
+                <div class="etymology-origin">
+                    <h4>📜 語源演變路徑</h4>
+                    <div class="origin-path">
+                        <span class="origin-step">拉丁語 secessio</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">se-「分離」+ cedere「走」</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">法語 sécession</span>
+                        <span class="arrow-symbol">→</span>
+                        <span class="origin-step">政治 → 藝術</span>
+                    </div>
+                    
+                    <div class="quote-box">
+                        <div class="quote-text">
+                            「Sécession」首先是<strong>政治術語</strong>，指一個群體脫離原有組織獨立。古羅馬歷史中，平民「Secessio plebis」（平民分離）是對貴族統治的抗議。1897年，克林姆等藝術家脫離保守的維也納藝術家協會，成立「Wiener Secession」（維也納分離派），直接借用這個帶有<strong>革命性</strong>的政治詞彙。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="etymology-grid">
+                    <div class="etymology-card">
+                        <div class="card-title">詞源分解</div>
+                        <div class="card-content">
+                            <strong>拉丁語構成：</strong>
+                            • se-：「分開、離開」（分離前綴）<br>
+                            • cedere：「走、讓步、退讓」<br>
+                            • secessio：「撤離、分裂」
+                            
+                            <strong>政治語境：</strong>
+                            • 古羅馬：平民脫離體制的抗爭<br>
+                            • 美國內戰：南方各州的分離<br>
+                            • 一般意義：獨立、脫離、分裂
+                            
+                            <strong>藝術語境：</strong>
+                            脫離學院派、保守勢力、傳統規範
+                        </div>
+                    </div>
+                    
+                    <div class="etymology-card">
+                        <div class="card-title">歷史用法</div>
+                        <div class="card-content">
+                            <strong>古羅馬：</strong>
+                            Secessio plebis（平民撤離）— 政治抗議手段
+                            
+                            <strong>19世紀：</strong>
+                            政治分離運動（如美國南方）
+                            
+                            <strong>1897：</strong>
+                            維也納分離派（Wiener Secession）成立
+                            
+                            <strong>後續：</strong>
+                            慕尼黑分離派、柏林分離派等相繼成立
+                            
+                            <strong>象徵意義：</strong>
+                            不只是風格差異，而是<strong>體制性決裂</strong>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="philosophical-meaning">
+                    <h4>💭 哲學涵義</h4>
+                    <p>
+                        <strong>「分離」概念的多重意涵：</strong><br><br>
+                        
+                        <strong>1. 體制反叛：</strong>「Sécession」不只是風格創新，而是<strong>組織性的決裂</strong>——建立新的展覽空間、新的藝術市場、新的評價體系。這是對整個藝術體制的挑戰。<br><br>
+                        
+                        <strong>2. 自主性宣言：</strong>「分離」意味著<strong>藝術自主</strong>——不再依附於學院、沙龍、國家。藝術家有權自行決定什麼是藝術。<br><br>
+                        
+                        <strong>3. 革命傳統：</strong>借用古羅馬平民抗爭的詞彙，暗示這是一場<strong>階級鬥爭</strong>——新興藝術家對抗保守既得利益者。<br><br>
+                        
+                        <strong>4. 現代性的姿態：</strong>「分離」是現代性的核心特徵——與傳統決裂、與過去切割、<strong>面向未來</strong>。<br><br>
+                        
+                        <strong>5. 國際主義：</strong>維也納分離派的口號是「Der Zeit ihre Kunst, der Kunst ihre Freiheit」（時代有其藝術，藝術有其自由）——「分離」也意味著超越民族主義。<br><br>
+                        
+                        <strong>6. 悖論性團結：</strong>「分離」的目的是為了<strong>新的聯合</strong>——分離派藝術家雖然風格各異，但團結在「反學院」的旗幟下。
+                    </p>
+                </div>
+                
+                <div class="linguistic-analysis">
+                    <h4>🔍 語言學洞察</h4>
+                    <ul>
+                        <li><strong>政治隱喻：</strong>用政治革命的詞彙命名藝術運動，顯示其激進性與社會批判性</li>
+                        <li><strong>動詞性名詞：</strong>「分離」是行動，不是狀態——強調過程與鬥爭</li>
+                        <li><strong>負面詞彙的正面化：</strong>「分離」通常帶貶義（分裂、不團結），但這裡是驕傲的宣言</li>
+                        <li><strong>集體性：</strong>不同於「浪漫主義」強調個人，「分離派」強調集體行動</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Modernisme/Expressionnisme -->
+            <div class="etymology-section modernisme">
+                <div class="term-header">
+                    <div class="french-term">Modernisme / Expressionnisme</div>
+                    <div class="pronunciation">[mɔ.dɛʁ.nism] / [ɛks.pʁɛ.sjɔ.nism]</div>
+                    <div class="period-info">1900-1920 | 現代性與表現革命</div>
+                </div>
+                
+                <div class="etymology-origin">
+                    <h4>📜 雙重詞源路徑</h4>
+                    
+                    <div style="margin-bottom: 25px;">
+                        <h5 style="color: #34495e; margin-bottom: 10px;">Modernisme（現代主義）：</h5>
+                        <div class="origin-path">
+                            <span class="origin-step">拉丁語 modernus</span>
+                            <span class="arrow-symbol">→</span>
+                            <span class="origin-step">modo「剛才、現在」</span>
+                            <span class="arrow-symbol">→</span>
+                            <span class="origin-step">法語 moderne</span>
+                            <span class="arrow-symbol">+</span>
+                            <span class="origin-step">-isme</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h5 style="color: #34495e; margin-bottom: 10px;">Expressionnisme（表現主義）：</h5>
+                        <div class="origin-path">
+                            <span class="origin-step">拉丁語 expressio</span>
+                            <span class="arrow-symbol">→</span>
+                            <span class="origin-step">ex-「向外」+ premere「壓」</span>
+                            <span class="arrow-symbol">→</span>
+                            <span class="origin-step">法語 expression</span>
+                            <span class="arrow-symbol">+</span>
+                            <span class="origin-step">-isme</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quote-box" style="margin-top: 20px;">
+                        <div class="quote-text">
+                            「Modernisme」與「Expressionnisme」常被視為姐妹概念：前者強調<strong>時間性</strong>（現在vs過去），後者強調<strong>方向性</strong>（內在向外）。兩者都是對19世紀「再現美學」的徹底否定，建立了20世紀藝術的新範式。
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="etymology-grid">
+                    <div class="etymology-card">
+                        <div class="card-title">Modernisme 詞源</div>
+                        <div class="card-content">
+                            <strong>拉丁語 modernus：</strong>
+                            modo「剛才」+ -ernus（形容詞後綴）
+                            
+                            <strong>modo 的演變：</strong>
+                            • modus「方式、量度」<br>
+                            • modo「剛剛、此刻」<br>
+                            • modernus「當代的、新的」
+                            
+                            <strong>核心概念：</strong>
+                            • 屬於當下的<br>
+                            • 與過去決裂的<br>
+                            • 面向未來的<br>
+                            • 不斷更新的
+                            
+                            <strong>悖論：</strong>
+                            「現代」總是相對的——今天的現代是明天的古典
+                        </div>
+                    </div>
+                    
+                    <div class="etymology-card">
+                        <div class="card-title">Expressionnisme 詞源</div>
+                        <div class="card-content">
+                            <strong>拉丁語 expressio：</strong>
+                            ex-「向外」+ premere「壓、擠」
+                            
+                            <strong>原始義：</strong>
+                            • 擠壓出來<br>
+                            • 顯現、表達<br>
+                            • 內在的外化
+                            
+                            <strong>對比 Impressionnisme：</strong>
+                            • Impression：外部→內部（被動接收）<br>
+                            • Expression：內部→外部（主動表達）
+                            
+                            <strong>哲學意涵：</strong>
+                            藝術不是模仿外部世界，而是表達內在情感
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="philosophical-meaning">
+                    <h4>💭 哲學涵義</h4>
+                    <p>
+                        <strong>現代主義的時間悖論：</strong><br><br>
+                        
+                        <strong>1. 永恆的當下：</strong>「modernus」來自「modo」（剛才），暗示<strong>現代性總是短暫的</strong>——每一刻都在成為過去。現代主義因此是一種<strong>永恆的革命</strong>，必須不斷自我否定。<br><br>
+                        
+                        <strong>2. 進步論：</strong>「現代」預設了<strong>線性時間觀</strong>——新的優於舊的。這是啟蒙運動以來的進步信仰。<br><br>
+                        
+                        <strong>3. 斷裂美學：</strong>現代主義的本質是<strong>與傳統決裂</strong>。但悖論在於：它越是否定傳統，越是依賴傳統作為對立面。<br><br><br>
+                        
+                        <strong>表現主義的方向性：</strong><br><br>
+                        
+                        <strong>1. 內向外的運動：</strong>「ex-premere」（向外擠壓）精確描述了表現主義美學——藝術是<strong>內在情感的爆發</strong>，不是外部現實的記錄。<br><br>
+                        
+                        <strong>2. 對印象主義的反動：</strong>
+                        • 印象派：im-pressio（向內壓印）— 被動接收外部光影<br>
+                        • 表現派：ex-pressio（向外擠壓）— 主動投射內在情感<br><br>
+                        
+                        <strong>3. 主體性的絕對化：</strong>表現主義將<strong>藝術家的自我</strong>置於絕對中心。外部世界只是內在情感的觸發器。<br><br>
+                        
+                        <strong>4. 暴力性的語彙：</strong>「擠壓」「爆發」暗示了表現主義的<strong>張力與痛苦</strong>——這不是優雅的表達，而是痛苦的吶喊。<br><br>
+                        
+                        <strong>5. 反再現論：</strong>如果藝術是「表達」而非「再現」，那麼<strong>扭曲、誇張、變形</strong>都是合理的——因為內在情感本來就不符合外部現實的邏輯。
+                    </p>
+                </div>
+                
+                <div class="linguistic-analysis">
+                    <h4>🔍 語言學洞察</h4>
+                    <ul>
+                        <li><strong>時間詞彙：</strong>「modernisme」是唯一直接以時間概念命名的藝術運動</li>
+                        <li><strong>方向前綴：</strong>in-(向內) vs ex-(向外)，印象派與表現派的語言學對立</li>
+                        <li><strong>主被動語態：</strong>「印象」是被動接收，「表達」是主動行為——反映了藝術家角色的轉變</li>
+                        <li><strong>永恆的革命：</strong>「現代」一詞的自我消解性——總是指向「現在」，永遠無法固定</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 比較總表 -->
+            <div class="comparison-table">
+                <h2>📚 六個時期名稱的語源學比較</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>法文術語</th>
+                            <th>詞源</th>
+                            <th>原始涵義</th>
+                            <th>哲學轉喻</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="term-column">Baroque</td>
+                            <td class="meaning-column">葡萄牙語 barroco<br>「不規則的珍珠」</td>
+                            <td class="meaning-column">奇異、不對稱、過度裝飾</td>
+                            <td class="meaning-column"><strong>從貶義到褒義</strong><br>違反規則→新的美學<br>缺陷→個性</td>
+                        </tr>
+                        <tr>
+                            <td class="term-column">Romantisme</td>
+                            <td class="meaning-column">拉丁語 romanicus<br>「羅曼語的」</td>
+                            <td class="meaning-column">通俗語言、騎士傳奇、想像故事</td>
+                            <td class="meaning-column"><strong>從通俗到崇高</strong><br>民間語言→詩性真理<br>虛構→深層真實</td>
+                        </tr>
+                        <tr>
+                            <td class="term-column">Belle Époque</td>
+                            <td class="meaning-column">法語 belle + époque<br>「美好時代」</td>
+                            <td class="meaning-column">優雅、美麗的歷史時期</td>
+                            <td class="meaning-column"><strong>懷舊的創造</strong><br>回顧性命名<br>失落的黃金時代</td>
+                        </tr>
+                        <tr>
+                            <td class="term-column">Impressionnisme</td>
+                            <td class="meaning-column">拉丁語 impressio<br>「印記、印象」</td>
+                            <td class="meaning-column">外物在心靈上的痕跡<br>瞬間感受</td>
+                            <td class="meaning-column"><strong>主觀真實論</strong><br>印象→真實<br>瞬間→永恆</td>
+                        </tr>
+                        <tr>
+                            <td class="term-column">Sécession</td>
+                            <td class="meaning-column">拉丁語 secessio<br>「分離、撤離」</td>
+                            <td class="meaning-column">政治分裂、獨立運動</td>
+                            <td class="meaning-column"><strong>革命性決裂</strong><br>政治→藝術<br>抗議→自主</td>
+                        </tr>
+                        <tr>
+                            <td class="term-column">Modernisme</td>
+                            <td class="meaning-column">拉丁語 modernus<br>「當代的、新的」</td>
+                            <td class="meaning-column">屬於現在的、當下的</td>
+                            <td class="meaning-column"><strong>時間革命</strong><br>現在→未來<br>永恆的創新</td>
+                        </tr>
+                        <tr>
+                            <td class="term-column">Expressionnisme</td>
+                            <td class="meaning-column">拉丁語 expressio<br>「向外擠壓」</td>
+                            <td class="meaning-column">表達、外化、顯現</td>
+                            <td class="meaning-column"><strong>內向外運動</strong><br>情感→形式<br>主體絕對化</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div style="margin-top: 40px; padding: 30px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 15px;">
+                    <h3 style="color: #2c3e50; margin-bottom: 20px; text-align: center;">🎯 語源學的終極啟示</h3>
+                    <p style="color: #555; line-height: 2.2; font-size: 1.05em;">
+                        這六個詞的演變揭示了西方藝術史的深層邏輯：<br><br>
+                        
+                        <strong>1. 從物質到精神：</strong>珍珠（物）→ 印象（感）→ 表達（心）<br>
+                        <strong>2. 從被動到主動：</strong>印記（被動）→ 表達（主動）<br>
+                        <strong>3. 從外部到內部：</strong>模仿自然 → 表達自我<br>
+                        <strong>4. 從永恆到瞬間：</strong>固定美 → 流動印象 → 當下現代<br>
+                        <strong>5. 從規則到自由：</strong>巴洛克的「違規」→ 分離派的「決裂」→ 現代主義的「永恆革命」<br><br>
+                        
+                        <strong style="color: #e74c3c;">每個名稱都是一次哲學宣言，每次命名都是一場認識論革命。</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
