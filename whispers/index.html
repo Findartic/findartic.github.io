@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>想得美 | 低吟中的渴望美學</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Serif TC', 'Times New Roman', serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        /* 移除水平捲動容器樣式 */
+
+        /* 動態漸變背景層 */
+        .gradient-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, 
+                var(--color1) 0%, 
+                var(--color2) 25%, 
+                var(--color3) 50%, 
+                var(--color4) 75%, 
+                var(--color5) 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 100% 100%; }
+            75% { background-position: 0% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* 色彩波動層 */
+        .color-wave {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .wave-layer {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at var(--x) var(--y), 
+                var(--wave-color) 0%, 
+                transparent 50%);
+            animation: waveMove 18s ease-in-out infinite;
+        }
+
+        .wave-layer:nth-child(1) {
+            --x: 20%; --y: 30%;
+            --wave-color: rgba(190, 140, 170, 0.3);
+            animation-delay: 0s;
+        }
+
+        .wave-layer:nth-child(2) {
+            --x: 80%; --y: 70%;
+            --wave-color: rgba(150, 120, 180, 0.3);
+            animation-delay: 6s;
+        }
+
+        .wave-layer:nth-child(3) {
+            --x: 50%; --y: 50%;
+            --wave-color: rgba(170, 150, 190, 0.3);
+            animation-delay: 12s;
+        }
+
+        @keyframes waveMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-10%, 10%) scale(1.1); }
+            66% { transform: translate(10%, -10%) scale(0.9); }
+        }
+
+        /* 內容容器 */
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 30px 100px;
+        }
+
+        /* 封面區域 */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 60px;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .exhibition-info {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            letter-spacing: 0.1em;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin: 30px 0 20px;
+            letter-spacing: 0.15em;
+        }
+
+        .hero .subtitle {
+            font-size: 1.8rem;
+            font-weight: 300;
+            margin-bottom: 10px;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        .hero .author {
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-top: 25px;
+            margin-bottom: 5px;
+            opacity: 0.9;
+            letter-spacing: 0.2em;
+        }
+
+        .hero .date {
+            font-size: 1.1rem;
+            margin-top: 30px;
+            opacity: 0.85;
+        }
+
+        /* 主標題區 */
+        .main-title {
+            text-align: center;
+            padding: 60px 20px 40px;
+            color: white;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .main-title h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: 0.1em;
+        }
+
+        /* 內容區塊 */
+        .section {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 50px 45px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; transform: translateY(20px); }
+        .section:nth-child(2) { animation-delay: 0.4s; transform: translateY(20px); }
+        .section:nth-child(3) { animation-delay: 0.6s; transform: translateY(20px); }
+        .section:nth-child(4) { animation-delay: 0.8s; transform: translateY(20px); }
+        .section:nth-child(5) { animation-delay: 1.0s; transform: translateY(20px); }
+        .section:nth-child(6) { animation-delay: 1.2s; transform: translateY(20px); }
+
+        .intro-section {
+            background: rgba(255, 255, 255, 0.88);
+            padding: 45px;
+        }
+
+        .intro-section p {
+            font-size: 1.15rem;
+            color: #333;
+            line-height: 2;
+            text-align: justify;
+        }
+
+        .section h3 {
+            font-size: 1.8rem;
+            color: #8E7CC3;
+            margin-bottom: 25px;
+            font-weight: 500;
+            border-left: 4px solid #B39DDB;
+            padding-left: 20px;
+        }
+
+        .section p {
+            font-size: 1.05rem;
+            color: #444;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* 引用區塊 */
+        .quote-block {
+            position: relative;
+            margin: 35px 0;
+            padding: 30px 35px;
+            background: linear-gradient(135deg, #F3E5F5 0%, #E1BEE7 100%);
+            border-radius: 15px;
+            border-left: 5px solid #9C27B0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .quote-block:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 20px rgba(156, 39, 176, 0.2);
+        }
+
+        .quote-french {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #6A1B9A;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .quote-chinese {
+            font-size: 1.05rem;
+            color: #4A148C;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            line-height: 1.7;
+        }
+
+        .quote-block.active .quote-chinese,
+        .quote-block:hover .quote-chinese {
+            opacity: 1;
+            max-height: 200px;
+            margin-top: 12px;
+        }
+
+        .quote-hint {
+            font-size: 0.85rem;
+            color: #9C27B0;
+            text-align: right;
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+
+        /* 詮釋區塊 */
+        .interpretation {
+            margin-top: 25px;
+            padding: 25px;
+            background: rgba(179, 157, 219, 0.1);
+            border-radius: 12px;
+            border-left: 3px solid #9FA8DA;
+        }
+
+        .interpretation strong {
+            color: #673AB7;
+            font-size: 1.05rem;
+        }
+
+        .interpretation p {
+            margin-top: 12px;
+        }
+
+        /* 結語區塊 */
+        .conclusion-section {
+            background: linear-gradient(135deg, rgba(142, 124, 195, 0.15) 0%, rgba(179, 157, 219, 0.15) 100%);
+            border: 2px solid rgba(142, 124, 195, 0.3);
+        }
+
+        .conclusion-section h3 {
+            color: #673AB7;
+            border-left-color: #9C27B0;
+        }
+
+        /* 色彩指示器 - 顯示當前色彩主題 */
+        .color-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(142, 124, 195, 0.5);
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            color: #673AB7;
+            font-family: 'Noto Serif TC', serif;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+
+        .color-indicator::before {
+            content: '🎨 ';
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 1024px) {
+            .color-indicator {
+                font-size: 0.85rem;
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .hero .author {
+                font-size: 1.1rem;
+                margin-top: 20px;
+            }
+
+            .main-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 35px 25px;
+            }
+
+            .section h3 {
+                font-size: 1.5rem;
+            }
+
+            .content {
+                padding: 20px 15px 80px;
+            }
+
+            .color-indicator {
+                top: 15px;
+                right: 15px;
+                font-size: 0.8rem;
+                padding: 8px 12px;
+            }
+
+            .scroll-hint {
+                bottom: 15px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* 捲動提示 - 垂直方向 */
+        .scroll-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* SVG 裝飾圖形 */
+        .svg-decoration {
+            position: fixed;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .svg-waiting {
+            width: 150px;
+            height: 150px;
+            top: 15%;
+            right: 5%;
+            animation: randomMove1 20s ease-in-out infinite;
+        }
+
+        .svg-absence {
+            width: 120px;
+            height: 120px;
+            top: 45%;
+            left: 3%;
+            animation: randomMove2 25s ease-in-out infinite;
+        }
+
+        .svg-desire {
+            width: 160px;
+            height: 160px;
+            bottom: 10%;
+            right: 8%;
+            animation: randomMove3 22s ease-in-out infinite;
+        }
+
+        .svg-anxiety {
+            width: 110px;
+            height: 110px;
+            top: 30%;
+            left: 7%;
+            animation: randomMove4 18s ease-in-out infinite;
+        }
+
+        .svg-longing {
+            width: 130px;
+            height: 130px;
+            bottom: 25%;
+            left: 5%;
+            animation: randomMove5 24s ease-in-out infinite;
+        }
+
+        @keyframes randomMove1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-30px, 40px) rotate(5deg); }
+            50% { transform: translate(20px, -20px) rotate(-3deg); }
+            75% { transform: translate(-15px, -30px) rotate(4deg); }
+        }
+
+        @keyframes randomMove2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            20% { transform: translate(40px, -30px) scale(1.1); }
+            40% { transform: translate(-20px, 30px) scale(0.95); }
+            60% { transform: translate(30px, 20px) scale(1.05); }
+            80% { transform: translate(-35px, -15px) scale(0.98); }
+        }
+
+        @keyframes randomMove3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            30% { transform: translate(-40px, -25px) rotate(-4deg); }
+            60% { transform: translate(25px, 35px) rotate(6deg); }
+            90% { transform: translate(-10px, -40px) rotate(-2deg); }
+        }
+
+        @keyframes randomMove4 {
+            0%, 100% { transform: translate(0, 0); }
+            15% { transform: translate(25px, -35px); }
+            35% { transform: translate(-30px, 20px); }
+            55% { transform: translate(35px, 30px); }
+            75% { transform: translate(-20px, -25px); }
+            90% { transform: translate(15px, 10px); }
+        }
+
+        @keyframes randomMove5 {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(35px, -20px) scale(1.08) rotate(3deg); }
+            50% { transform: translate(-25px, 35px) scale(0.95) rotate(-4deg); }
+            75% { transform: translate(20px, -30px) scale(1.05) rotate(2deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.15); opacity: 0.8; }
+        }
+
+        @keyframes tremble {
+            0%, 100% { transform: translateX(0px); }
+            25% { transform: translateX(-3px); }
+            75% { transform: translateX(3px); }
+        }
+
+        /* 在手機版也顯示所有裝飾 */
+        @media (max-width: 768px) {
+            .svg-decoration {
+                opacity: 0.4;
+            }
+            
+            /* 調整尺寸讓手機版更適合 */
+            .svg-waiting {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .svg-absence {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .svg-desire {
+                width: 110px;
+                height: 110px;
+            }
+            
+            .svg-anxiety {
+                width: 75px;
+                height: 75px;
+            }
+            
+            .svg-longing {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 動態漸變背景 -->
+    <div class="gradient-background" id="gradientBg"></div>
+
+    <!-- 色彩波動層 -->
+    <div class="color-wave">
+        <div class="wave-layer"></div>
+        <div class="wave-layer"></div>
+        <div class="wave-layer"></div>
+    </div>
+
+    <!-- SVG 裝飾圖形 -->
+    <!-- 等待 - 旋轉的沙漏 -->
+    <svg class="svg-decoration svg-waiting" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#673AB7" stroke-width="3" fill="none">
+            <!-- 沙漏外框 -->
+            <path d="M 30 20 L 70 20 L 60 50 L 70 80 L 30 80 L 40 50 Z"/>
+            <!-- 上下邊框 -->
+            <path d="M 30 20 L 70 20 M 30 80 L 70 80" stroke-width="4"/>
+            <!-- 旋轉的沙粒組 -->
+            <g class="sand-group">
+                <!-- 上方沙堆 -->
+                <ellipse cx="50" cy="30" rx="12" ry="8" fill="#9C27B0" opacity="0.8">
+                    <animate attributeName="ry" values="8;3;1" dur="6s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.8;0.5;0.2" dur="6s" repeatCount="indefinite"/>
+                </ellipse>
+                <!-- 流動的沙粒 -->
+                <circle cx="50" cy="50" r="2" fill="#AB47BC">
+                    <animate attributeName="cy" values="35;50;65" dur="6s" repeatCount="indefinite"/>
+                    <animate attributeName="r" values="2;1.5;2" dur="6s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="48" cy="50" r="1.5" fill="#BA68C8">
+                    <animate attributeName="cy" values="37;50;67" dur="6s" begin="0.5s" repeatCount="indefinite"/>
+                </circle>
+                <circle cx="52" cy="50" r="1.5" fill="#BA68C8">
+                    <animate attributeName="cy" values="36;50;66" dur="6s" begin="1s" repeatCount="indefinite"/>
+                </circle>
+                <!-- 下方沙堆 -->
+                <ellipse cx="50" cy="70" rx="12" ry="1" fill="#9C27B0" opacity="0.2">
+                    <animate attributeName="ry" values="1;3;8" dur="6s" repeatCount="indefinite"/>
+                    <animate attributeName="opacity" values="0.2;0.5;0.8" dur="6s" repeatCount="indefinite"/>
+                </ellipse>
+            </g>
+        </g>
+        <!-- 整個沙漏旋轉動畫 -->
+        <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="rotate"
+            from="0 50 50"
+            to="360 50 50"
+            dur="12s"
+            repeatCount="indefinite"/>
+    </svg>
+
+    <!-- 缺席 - 空心圓與虛線 -->
+    <svg class="svg-decoration svg-absence" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="35" stroke="#9C27B0" stroke-width="3" fill="none" stroke-dasharray="8,8"/>
+        <circle cx="50" cy="50" r="25" stroke="#B39DDB" stroke-width="2.5" fill="none"/>
+        <circle cx="50" cy="50" r="15" stroke="#CE93D8" stroke-width="2" fill="none" stroke-dasharray="5,5"/>
+    </svg>
+
+    <!-- 欲望 - 流動的曲線 -->
+    <svg class="svg-decoration svg-desire" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10 50 Q 30 20, 50 50 T 90 50" stroke="#AB47BC" stroke-width="3.5" fill="none">
+            <animate attributeName="d" 
+                values="M 10 50 Q 30 20, 50 50 T 90 50;
+                        M 10 50 Q 30 80, 50 50 T 90 50;
+                        M 10 50 Q 30 20, 50 50 T 90 50" 
+                dur="4s" repeatCount="indefinite"/>
+        </path>
+        <path d="M 10 60 Q 30 30, 50 60 T 90 60" stroke="#BA68C8" stroke-width="3" fill="none">
+            <animate attributeName="d" 
+                values="M 10 60 Q 30 30, 50 60 T 90 60;
+                        M 10 60 Q 30 90, 50 60 T 90 60;
+                        M 10 60 Q 30 30, 50 60 T 90 60" 
+                dur="5s" repeatCount="indefinite"/>
+        </path>
+    </svg>
+
+    <!-- 焦慮 - 震動的線條 -->
+    <svg class="svg-decoration svg-anxiety" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#8E7CC3" stroke-width="3" fill="none">
+            <line x1="20" y1="30" x2="80" y2="30">
+                <animate attributeName="y1" values="30;28;32;30" dur="0.5s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="30;32;28;30" dur="0.5s" repeatCount="indefinite"/>
+            </line>
+            <line x1="20" y1="45" x2="80" y2="45">
+                <animate attributeName="y1" values="45;43;47;45" dur="0.6s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="45;47;43;45" dur="0.6s" repeatCount="indefinite"/>
+            </line>
+            <line x1="20" y1="60" x2="80" y2="60">
+                <animate attributeName="y1" values="60;58;62;60" dur="0.4s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="60;62;58;60" dur="0.4s" repeatCount="indefinite"/>
+            </line>
+            <line x1="20" y1="75" x2="80" y2="75">
+                <animate attributeName="y1" values="75;73;77;75" dur="0.7s" repeatCount="indefinite"/>
+                <animate attributeName="y2" values="75;77;73;75" dur="0.7s" repeatCount="indefinite"/>
+            </line>
+        </g>
+    </svg>
+
+    <!-- 相思 - 完整的心形 -->
+    <svg class="svg-decoration svg-longing" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+        <g stroke="#CE93D8" stroke-width="3" fill="none">
+            <!-- 左半心形 -->
+            <path d="M 50 40 C 50 35, 45 30, 35 30 C 25 30, 20 35, 20 45 C 20 55, 30 65, 50 80">
+                <animate attributeName="d" 
+                    values="M 50 40 C 50 35, 45 30, 35 30 C 25 30, 20 35, 20 45 C 20 55, 30 65, 50 80;
+                            M 50 40 C 50 35, 45 30, 35 30 C 25 30, 18 35, 18 45 C 18 58, 30 68, 50 85;
+                            M 50 40 C 50 35, 45 30, 35 30 C 25 30, 20 35, 20 45 C 20 55, 30 65, 50 80" 
+                    dur="3s" repeatCount="indefinite"/>
+            </path>
+            <!-- 右半心形 -->
+            <path d="M 50 40 C 50 35, 55 30, 65 30 C 75 30, 80 35, 80 45 C 80 55, 70 65, 50 80">
+                <animate attributeName="d" 
+                    values="M 50 40 C 50 35, 55 30, 65 30 C 75 30, 80 35, 80 45 C 80 55, 70 65, 50 80;
+                            M 50 40 C 50 35, 55 30, 65 30 C 75 30, 82 35, 82 45 C 82 58, 70 68, 50 85;
+                            M 50 40 C 50 35, 55 30, 65 30 C 75 30, 80 35, 80 45 C 80 55, 70 65, 50 80" 
+                    dur="3s" repeatCount="indefinite"/>
+            </path>
+            <!-- 中心點 -->
+            <circle cx="50" cy="40" r="4" fill="#CE93D8">
+                <animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/>
+            </circle>
+        </g>
+    </svg>
+
+    <!-- 封面區域 -->
+    <div class="hero">
+        <div class="exhibition-info">2025台北雙年展 「地平線上的低吟」</div>
+        <div class="exhibition-info">2025 Taipei Biennial "Whispers on the Horizon"</div>
+        <div class="exhibition-info">2025/11/01 - 2026/03/29 | 臺北市立美術館</div>
+        
+        <h1>想得美</h1>
+        <p class="subtitle">低吟中的渴望美學</p>
+        <p class="author">Findart</p>
+        <p class="date">2026 / 1 / 14</p>
+    </div>
+
+    <!-- 主要內容 -->
+    <div class="content">
+        <div class="main-title">
+            <h2>《戀人絮語》低吟中的渴望美學</h2>
+        </div>
+
+        <!-- 導言 -->
+        <div class="section intro-section">
+            <p>
+                在愛情的語境裡,最強烈的渴望往往不在於高聲的宣告,而在於那些未盡的低吟、懸置的等待與意義的縫隙。羅蘭·巴特的《戀人絮語》為我們揭示了,正是這種「未完成性」,構成了欲望永動的引擎。本文透過四個隱藏機制——缺席的召喚、等待的延宕、語言的幻覺、欲望的延續——剖析戀人低吟中,那份永不滿足卻又無比豐饒的渴望美學。
+            </p>
+        </div>
+
+        <!-- 第一部分 -->
+        <div class="section">
+            <h3>1. 缺席的召喚：低語的結構性空缺</h3>
+            <p>
+                低語之所以動人,正因為它是不完整的。它像一張殘缺的地圖,不直接展示寶藏,而是標示出「空缺」本身。聽者被置於一個追尋者的位置,必須用自身的想象與渴望去填補那片寂靜。在巴特看來,愛人的話語永遠圍繞著一個核心的「不在場」運轉。
+            </p>
+
+            <div class="quote-block">
+                <div class="quote-french">
+                    "Ce qui est répété, c'est précisément l'irréparable de l'absence."
+                </div>
+                <div class="quote-chinese">
+                    「被不斷重複的,恰恰是缺席所帶來的無可彌補。」
+                </div>
+                <div class="quote-hint">— 點擊查看中文</div>
+            </div>
+
+            <div class="interpretation">
+                <strong>詮釋：</strong>
+                <p>
+                    這句話揭示了戀人絮語的本質。我們重複的話語、重溫的記憶,並非為了解決問題,而是為了不停地觸碰那個由「缺席」造成的傷口。低吟,便是這種重複的儀式,它召喚的不是對象的在場,而是「缺席」本身所激發的、無窮無盡的渴望。
+                </p>
+            </div>
+        </div>
+
+        <!-- 第二部分 -->
+        <div class="section">
+            <h3>2. 等待的延宕：時間的慾望工坊</h3>
+            <p>
+                低語不是一個完整的訊息交付,它是一種延遲、一種承諾、一種「即將來到卻尚未完全」的狀態。接收者陷入等待,時間的每一秒都被拉長、注入懸念。在這段被延宕的時間裡,渴望並非被消磨,而是在反覆的猜想與期盼中被精心鍛造、無限拉長。
+            </p>
+
+            <div class="quote-block">
+                <div class="quote-french">
+                    "Je suis installé dans l'attente, l'attente est un délire."
+                </div>
+                <div class="quote-chinese">
+                    「我安頓於等待之中,等待是一種妄念。」
+                </div>
+                <div class="quote-hint">— 點擊查看中文</div>
+            </div>
+
+            <div class="interpretation">
+                <strong>詮釋：</strong>
+                <p>
+                    巴特將等待提升到本體論的高度——戀人就是「等待的人」。這種等待不是被動的,而是一種主動投入的「妄念」,一種精神上的狂熱。低吟構成了等待的內容,它讓聽者在時間的延宕中,不斷構建與拆解關於未來的幻景,渴望在此過程中獲得其獨特的張力與形態。
+                </p>
+            </div>
+        </div>
+
+        <!-- 第三部分 -->
+        <div class="section">
+            <h3>3. 語言的幻覺：聽者的共同創作</h3>
+            <p>
+                低吟因其模糊性,邀請聽者參與意義的創造。聲音的細節被遮蔽,語義的邊界變得柔和,聽者不得不動用自身的慾望與想象去「補完」話語。於是,最終被聽到的,已不再是說話者的原意,而是聽者心中被慾望所投射、所潤飾的「幻覺性語言」。
+            </p>
+
+            <div class="quote-block">
+                <div class="quote-french">
+                    "Je fais venir à moi un être qui n'existe pas (puisque je suis seul), un être parlé."
+                </div>
+                <div class="quote-chinese">
+                    「我召喚了一個並不存在的生命(既然我獨自一人),一個被話語述說的生命。」
+                </div>
+                <div class="quote-hint">— 點擊查看中文</div>
+            </div>
+
+            <div class="interpretation">
+                <strong>詮釋：</strong>
+                <p>
+                    在孤獨的渴望中,戀人實際上是在與一個由自己話語所創造的幻影對話。低吟的模糊性,恰恰為這個「被話語述說的生命」提供了生長的空間。聽者(即使是想象中的聽者)在解讀低吟時,也進行著同樣的創造——我們聽到的,是自己渴望聽到的聲音,是慾望本身的迴響。
+                </p>
+            </div>
+        </div>
+
+        <!-- 第四部分 -->
+        <div class="section">
+            <h3>4. 欲望的延續：永不終結的句子</h3>
+            <p>
+                一句清晰、完整、封閉的話語可能終結對話,也可能終結慾望。但低吟恰恰相反,它是一個開口,一個省略號,一個意猶未盡的顫音。它拒絕提供最終的意義滿足,從而保證了慾望不會因「完成」而死亡。渴望因低吟的「不完整性」而得以永續循環。
+            </p>
+
+            <div class="quote-block">
+                <div class="quote-french">
+                    "Le désir court, palpite, à travers le discours amoureux ; ce discours, je puis le tenir indéfiniment, sans jamais être comblé ni fatigué."
+                </div>
+                <div class="quote-chinese">
+                    「慾望奔流、顫動,貫穿整個戀人絮語；這段絮語,我可以無限期地進行下去,既永不滿足,也永不疲憊。」
+                </div>
+                <div class="quote-hint">— 點擊查看中文</div>
+            </div>
+
+            <div class="interpretation">
+                <strong>詮釋：</strong>
+                <p>
+                    這或許是對渴望美學最直接的定義。戀人絮語本身不是為了抵達某個結論,其存在就是慾望流動的形式。低吟作為絮語的典型態,正是這種「永不滿足,也永不疲憊」狀態的最佳載體。它讓慾望成為一個過程,而非一個目標,從而在無限的延展中,保有最鮮活、最強烈的生命力。
+                </p>
+            </div>
+        </div>
+
+        <!-- 結語 -->
+        <div class="section conclusion-section">
+            <h3>結語：低吟作為一種倫理</h3>
+            <p>
+                巴特筆下的渴望美學,最終指向一種愛情的倫理：它不追求佔有、確定與終結,而是擁抱不確定、延遲與開放的詮釋。低吟,便是實踐這種倫理的溫柔方式。它尊重對方作為一個獨立、無法被完全詮釋的個體,同時也誠實地面對自身慾望那永不枯竭的本質。在低吟的迴響中,我們學會了與渴望共存,並在對意義永無止境的追尋裡,見證了愛情最深邃、最持久的模樣。
+            </p>
+        </div>
+    </div>
+
+    <!-- 色彩指示器 -->
+    <div class="color-indicator" id="colorIndicator">低吟紫粉</div>
+
+    <!-- 捲動提示 -->
+    <div class="scroll-hint">↓ 向下捲動探索 ↓</div>
+
+    <script>
+        // 色彩預設方案與名稱對照
+        const colorPresets = {
+            whisper: {
+                name: '低吟紫粉',
+                colors: {
+                    color1: '#E1BEE7',
+                    color2: '#CE93D8',
+                    color3: '#BA68C8',
+                    color4: '#AB47BC',
+                    color5: '#9C27B0'
+                }
+            },
+            twilight: {
+                name: '暮光薄霧',
+                colors: {
+                    color1: '#8E7CC3',
+                    color2: '#9FA8DA',
+                    color3: '#B39DDB',
+                    color4: '#CE93D8',
+                    color5: '#F48FB1'
+                }
+            },
+            aurora: {
+                name: '極光夜空',
+                colors: {
+                    color1: '#A8E6CF',
+                    color2: '#DCEDC8',
+                    color3: '#FFD3B6',
+                    color4: '#FFAAA5',
+                    color5: '#FF8B94'
+                }
+            },
+            sunset: {
+                name: '日落黃昏',
+                colors: {
+                    color1: '#FF6B6B',
+                    color2: '#FFD93D',
+                    color3: '#FF8C42',
+                    color4: '#FFB6B9',
+                    color5: '#FEC8D8'
+                }
+            },
+            ocean: {
+                name: '海洋深藍',
+                colors: {
+                    color1: '#4ECDC4',
+                    color2: '#44A8B3',
+                    color3: '#1A535C',
+                    color4: '#6CC4E5',
+                    color5: '#96E6F7'
+                }
+            },
+            spring: {
+                name: '春日花園',
+                colors: {
+                    color1: '#FFB3BA',
+                    color2: '#FFDFBA',
+                    color3: '#FFFFBA',
+                    color4: '#BAFFC9',
+                    color5: '#BAE1FF'
+                }
+            }
+        };
+
+        const presetKeys = Object.keys(colorPresets);
+        let currentPresetIndex = 0;
+
+        // 設置色彩預設
+        function setColorPreset(presetKey) {
+            const preset = colorPresets[presetKey];
+            const gradientBg = document.getElementById('gradientBg');
+            const indicator = document.getElementById('colorIndicator');
+            
+            // 應用色彩變量
+            for (let key in preset.colors) {
+                gradientBg.style.setProperty(`--${key}`, preset.colors[key]);
+            }
+
+            // 更新指示器文字
+            indicator.textContent = preset.name;
+
+            // 添加過渡效果
+            gradientBg.style.transition = 'all 2s ease';
+            setTimeout(() => {
+                gradientBg.style.transition = '';
+            }, 2000);
+        }
+
+        // 初始化預設色彩
+        function initializeColors() {
+            setColorPreset(presetKeys[0]);
+        }
+
+        initializeColors();
+
+        // 滑鼠移動互動效果
+        document.addEventListener('mousemove', (e) => {
+            const waves = document.querySelectorAll('.wave-layer');
+            const mouseX = e.clientX / window.innerWidth * 100;
+            const mouseY = e.clientY / window.innerHeight * 100;
+
+            waves.forEach((wave, index) => {
+                const speed = (index + 1) * 0.3;
+                wave.style.setProperty('--x', `${mouseX * speed}%`);
+                wave.style.setProperty('--y', `${mouseY * speed}%`);
+            });
+        });
+
+        // 引用區塊點擊切換
+        document.querySelectorAll('.quote-block').forEach(block => {
+            block.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+
+        // 垂直捲動時隱藏提示
+        const scrollHint = document.querySelector('.scroll-hint');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                scrollHint.style.opacity = '0';
+            } else {
+                scrollHint.style.opacity = '0.7';
+            }
+        });
+
+        // 平滑捲動到內容
+        scrollHint?.addEventListener('click', () => {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+
+        // 觀察元素進入視窗時的動畫
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // ===== 滑動觸發色彩變化 =====
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 80; // 滑動閾值
+            const horizontalDiff = touchStartX - touchEndX;
+            const verticalDiff = Math.abs(touchStartY - touchEndY);
+            
+            // 只有當水平滑動距離大於垂直滑動距離時才觸發色彩變化
+            if (Math.abs(horizontalDiff) > swipeThreshold && Math.abs(horizontalDiff) > verticalDiff) {
+                if (horizontalDiff > 0) {
+                    // 向左滑動 - 下一個主題
+                    currentPresetIndex = (currentPresetIndex + 1) % presetKeys.length;
+                } else {
+                    // 向右滑動 - 上一個主題
+                    currentPresetIndex = (currentPresetIndex - 1 + presetKeys.length) % presetKeys.length;
+                }
+                setColorPreset(presetKeys[currentPresetIndex]);
+            }
+        }
+
+        // 鍵盤快捷鍵：左右箭頭切換色彩主題
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                currentPresetIndex = (currentPresetIndex + 1) % presetKeys.length;
+                setColorPreset(presetKeys[currentPresetIndex]);
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                currentPresetIndex = (currentPresetIndex - 1 + presetKeys.length) % presetKeys.length;
+                setColorPreset(presetKeys[currentPresetIndex]);
+            }
+        });
+
+        // 滑鼠滾輪水平滑動（按住 Shift 鍵）切換色彩
+        document.addEventListener('wheel', (e) => {
+            if (e.shiftKey) {
+                e.preventDefault();
+                if (e.deltaY > 0 || e.deltaX > 0) {
+                    // 向右滾動
+                    currentPresetIndex = (currentPresetIndex + 1) % presetKeys.length;
+                } else {
+                    // 向左滾動
+                    currentPresetIndex = (currentPresetIndex - 1 + presetKeys.length) % presetKeys.length;
+                }
+                setColorPreset(presetKeys[currentPresetIndex]);
+            }
+        }, { passive: false });
+    </script>
+</body>
+</html>
