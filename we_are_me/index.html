@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WE ARE ME — 我（們）到此一遊</title>
+    <style>
+        :root {
+            --ocean-dark: #001f3f;
+            --ocean-light: #0074D9;
+            --gold-accent: #FFD700;
+            --glass-bg: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, #000b18 0%, #001f3f 50%, #003366 100%);
+            background-attachment: fixed;
+            line-height: 1.6;
+        }
+
+        /* 藝術海洋背景裝飾 */
+        .ocean-waves {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            opacity: 0.2;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0; left: 0; width: 200%; height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            animation: waveMove 25s linear infinite;
+        }
+
+        @keyframes waveMove {
+            from { transform: translateX(0) translateY(10px); }
+            to { transform: translateX(-50%) translateY(0px); }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            letter-spacing: 5px;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0, 116, 217, 0.8);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--gold-accent);
+            text-transform: uppercase;
+        }
+
+        .info-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        section {
+            margin: 50px 0;
+        }
+
+        h2 {
+            border-left: 5px solid var(--gold-accent);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .theory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .analysis-block {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        /* 影片嵌入容器 */
+        .video-section {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 比例 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+
+<div class="ocean-waves">
+    <div class="wave"></div>
+</div>
+
+<div class="container">
+    <header>
+        <div class="subtitle">基隆美術館年度大展</div>
+        <h1>WE ARE ME</h1>
+        <p>我（們）到此一遊 — 想得美</p>
+    </header>
+
+    <div class="info-box">
+        📅 <strong>時間：</strong> 2026/01/28 | 📍 <strong>地點：</strong> 基隆美術館
+    </div>
+
+    <section>
+        <h2>👁️ 伯格的核心觀點</h2>
+        <div class="theory-grid">
+            <div class="card">
+                <h3>1. 觀看是主動的</h3>
+                <p>「觀看先於言語」，我們藉由觀看確立自己與世界的關係。</p>
+            </div>
+            <div class="card">
+                <h3>2. 觀看的互惠性</h3>
+                <p>我們能看不久後，就意識到自己也能被看見。</p>
+            </div>
+            <div class="card">
+                <h3>3. 影像體現觀看方式</h3>
+                <p>影像不只是主題的記錄，更是「某人如何被另一人觀看」的體現。</p>
+            </div>
+            <div class="card">
+                <h3>4. 權力與表演</h3>
+                <p>「男人行動，女人表現。」揭示了觀看中的權力結構。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <h2 style="border:none; text-align:center; margin-bottom: 20px;">🎬 專題導覽影片</h2>
+        <p style="margin-bottom: 30px; color: #ccc;">深入了解：從文藝復興的古典繪畫到今日的 IG 數位凝視。</p>
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/6oUNRlnZnt0" 
+                title="觀看的方式：從文藝復興到IG時代" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <footer>
+        <p>「當我們在看時，是誰在教我們如何看？我們又在為什麼而表演？」</p>
+        <p>© 2026 Findart | Inspired by John Berger</p>
+    </footer>
+</div>
+
+</body>
+</html>
