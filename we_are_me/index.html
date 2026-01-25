@@ -145,6 +145,18 @@
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.5);
         }
+           /* Section 3: Artist Highlights  */
+        .artist-card {
+            background: linear-gradient(135deg, #0a9396 0%, #005f73 100%);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s;
+        }
+
+        .artist-card:hover {
+            transform: scale(1.02);
+        }
     </style>
 </head>
 <body>
@@ -156,16 +168,18 @@
 <div class="container">
     <header>
         <div class="subtitle">基隆美術館年度大展</div>
-        <h1>WE ARE ME</h1>
-        <p>我（們）到此一遊 — 想得美</p>
+        <h1>想得美</h1>
+        <h2>The Way of Seeing We are Me</h2>
+        <h3>到此一看我（們）到此一遊 </h3>
     </header>
 
     <div class="info-box">
-        📅 <strong>時間：</strong> 2026/01/28 | 📍 <strong>地點：</strong> 基隆美術館
+        <p>📅 <strong>時間：</strong> 2026/01/28 </p>
+        <p> 📍 <strong>地點：</strong> 基隆美術館</p>
     </div>
 
     <section>
-        <h2>👁️ 伯格的核心觀點</h2>
+        <h2>👁️ John Berger 的核心觀點</h2>
         <div class="theory-grid">
             <div class="card">
                 <h3>1. 觀看是主動的</h3>
@@ -183,9 +197,46 @@
                 <h3>4. 權力與表演</h3>
                 <p>「男人行動，女人表現。」揭示了觀看中的權力結構。</p>
             </div>
+            <div class="card">
+                <h3>5. 當觀看成為一種表演</h3>
+                <p>在社群媒體與演算法驅動的洪流下，我們以為自己在選擇觀看，實則早已被引導 。</p>
+            </div>
+        
+            <div class="card">
+                <h3>6. 到此即表態 </h3>
+                <p>觀看不再只是「看」，而是身分的再造與表演 。</p>
+            </div>
+            <div class="card">
+                <h3>7. 自我審查 </h3>
+                <p>為了被點讚、被演算法推薦，我們在「藝術海洋」中不斷進行形象管理 。</p>
+            </div>
+        </div>
+
+
+
         </div>
     </section>
+ 
 
+<section class="section" id="section3">
+        <h2>「我（們）」到此一遊</h2>
+        <p>當 WE 置於鏡前，反射出的既是 ME，也是無數被轉譯的身分 。</p>
+        
+        <div class="artist-card">
+            <h3>卡蜜兒．安侯 (Camille Henrot) </h3>
+            <p>透過《極度疲憊》展現資訊過載下的影像考古 。</p>
+        </div>
+        
+        <div class="artist-card">
+            <h3>瑞安．甘德 (Ryan Gander) </h3>
+            <p>以《封閉系統》挑戰我們理解他人感知的能力 。</p>
+        </div>
+
+        <div class="artist-card">
+            <h3>山內祥太 (Shota Yamauchi) </h3>
+            <p>運用 AI 生成，想像後人類的虛擬存在 。</p>
+        </div>
+    </section>
     <section class="video-section">
         <h2 style="border:none; text-align:center; margin-bottom: 20px;">🎬 專題導覽影片</h2>
         <p style="margin-bottom: 30px; color: #ccc;">深入了解：從文藝復興的古典繪畫到今日的 IG 數位凝視。</p>
