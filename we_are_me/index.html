@@ -157,6 +157,66 @@
         .artist-card:hover {
             transform: scale(1.02);
         }
+        /* References 區塊樣式 */
+#references {
+  border-top: 2px solid #E0E6ED;   /* 頁尾分隔線 */
+  margin-top: 40px;
+  padding-top: 20px;
+  color: #E0E6ED;                  /* 區塊文字顏色 */
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+#references h2 {
+  color: #FFFFFF;                  /* 標題顏色 */
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+#references ul {
+  list-style-type: none;           /* 移除預設項目符號 */
+  padding-left: 0;
+}
+
+#references li {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+/* 連結樣式 */
+#references a {
+  color: #4DA6FF;                  /* 正常狀態：亮藍色 */
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#references a:hover {
+  color: #FF9933;                  /* 滑鼠移上去：橘色 */
+  text-decoration: underline;
+}
+
+#references a:visited {
+  color: #9966CC;                  /* 已訪問：紫色 */
+}
+/* Section 3 專屬連結樣式 */
+#section3 a {
+  color: #F9F871;          /* 正常狀態：亮黃 */
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+#section3 a:hover {
+  color: #FFB347;          /* 滑鼠移上去：橘色 */
+  text-decoration: underline;
+}
+
+#section3 a:visited {
+  color: #CBA6F7;          /* 已訪問：紫色 */
+}
+
+#section3 a:active {
+  color: #FF4C4C;          /* 點擊瞬間：紅色 */
+}
     </style>
 </head>
 <body>
@@ -169,7 +229,7 @@
     <header>
         <div class="subtitle">基隆美術館年度大展</div>
         <h1>想得美</h1>
-        <h2>The Way of Seeing We are Me</h2>
+        <h2>Ways of Seeing We are Me</h2>
         <h3>到此一看我（們）到此一遊 </h3>
     </header>
 
@@ -223,17 +283,28 @@
         <p>當 WE 置於鏡前，反射出的既是 ME，也是無數被轉譯的身分 。</p>
         
         <div class="artist-card">
-            <h3>卡蜜兒．安侯 (Camille Henrot) </h3>
+            <h3>卡蜜兒．安侯 ( <a href="https://www.facebook.com/KLCCABTW/posts/-we-are-me-%E8%97%9D%E8%A1%93%E5%AE%B6%E4%BB%8B%E7%B4%B9-%E5%8D%A1%E8%9C%9C%E5%85%92%E5%AE%89%E4%BE%AF-please-see-the-comment-for-the-english-information-%E5%87%BA%E7%94%9F%E6%96%BC-19/1145582251084669/" target="_blank"> Camille Henrot 
+
+            </a>) 
+        </h3>
             <p>透過《極度疲憊》展現資訊過載下的影像考古 。</p>
-        </div>
+            </div>
         
         <div class="artist-card">
-            <h3>瑞安．甘德 (Ryan Gander) </h3>
+            <h3>瑞安．甘德 ( <a href="https://www.facebook.com/KLCCABTW/posts/-we-are-me-%E8%97%9D%E8%A1%93%E5%AE%B6%E4%BB%8B%E7%B4%B9-%E7%91%9E%E5%AE%89%E7%94%98%E5%BE%B7-%E9%A6%96%E5%BA%A6%E6%96%BC%E5%8F%B0%E7%81%A3%E7%9A%84%E7%BE%8E%E8%A1%93%E9%A4%A8%E5%B1%95%E5%87%BA-please-see-the-comment-for-the-english-informa/1139469975029230/" target="_blank"> Ryan Gander
+            </a>) 
+
+            </h3>
             <p>以《封閉系統》挑戰我們理解他人感知的能力 。</p>
-        </div>
+            </div>
 
         <div class="artist-card">
-            <h3>山內祥太 (Shota Yamauchi) </h3>
+            <h3>山內祥太  (<a href="https://www.facebook.com/klvisualart/posts/-we-are-me-%E8%97%9D%E8%A1%93%E5%AE%B6%E4%BB%8B%E7%B4%B9-%E5%B1%B1%E5%85%A7%E7%A5%A5%E5%A4%AAplease-see-the-comment-for-the-english-information%E5%87%BA%E7%94%9F%E6%96%BC-1992-/1294257349411373/" target="_blank"> Shota Yamauchi 
+
+            </a>) 
+ 
+
+            </h3>
             <p>運用 AI 生成，想像後人類的虛擬存在 。</p>
         </div>
     </section>
@@ -256,6 +327,21 @@
         <p>© 2026 Findart | Inspired by John Berger</p>
     </footer>
 </div>
-
+<section id="references">
+    <h2>References</h2>
+    <ul>
+        <li>
+            博客來 - 觀看的方式：
+            <a href="https://www.books.com.tw/products/0010895449?sloc=main" target="_blank">
+                觀看的方式
+                </a>
+        </li>
+        <li>
+            讀 John Berger《觀看的方式》：我們注視的從來不是事物本身；我們注視的永遠是事物與我們之間的關係 —
+            <a href="https://www.mropengate.com/2023/11/john-berger.html?m=1" target="_blank"> Mr. Opengate
+            </a>
+        </li>
+    </ul>
+</section>
 </body>
 </html>
